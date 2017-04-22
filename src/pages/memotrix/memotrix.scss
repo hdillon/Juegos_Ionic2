@@ -1,0 +1,48 @@
+page-memotrix {
+
+    .grid-full ion-row {
+    height: 100%;
+    padding: 0;
+    flex-wrap: wrap;
+    }
+
+    .grid-full ion-col {
+    flex: 0 0 50%;
+    max-width: 50%;
+    text-align: center;
+    padding: 10px 5px;
+    }
+
+    .cell-0 {
+    background-color: #F44336;
+    font-size: 24px;
+    }
+
+    .cell-0:active , .cell-1:active , .cell-2:active , .cell-3:active , .cell-4:active , .cell-5:active{
+    background-color: #607D8B;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+    }
+
+    .cell-1 {
+    background-color: #009688;
+    font-size: 24px;
+    }
+    .cell-2 {
+    background-color: #3F51B5;
+    font-size: 24px;
+    }
+    .cell-3 {
+    background-color: #CDDC39;
+    font-size: 24px;
+    }
+    .cell-4 {
+    background-color: #E91E63;
+    font-size: 24px;
+    }
+    .cell-5 {
+    background-color: #673AB7;
+    font-size: 24px;
+    }
+
+}

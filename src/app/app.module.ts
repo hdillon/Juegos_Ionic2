@@ -7,6 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { ResetPasswordPage } from '../pages/reset-password/reset-password';
 import { SignupPage } from '../pages/signup/signup';
+import { MemotrixPage } from '../pages/memotrix/memotrix';
 // Importing Providers
 import { AuthData } from '../providers/auth-data';
 // Importing AF2 Module
@@ -36,7 +37,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HomePage,
     LoginPage,
     ResetPasswordPage,
-    SignupPage
+    SignupPage,
+    MemotrixPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -50,7 +52,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HomePage,
     LoginPage,
     ResetPasswordPage,
-    SignupPage
+    SignupPage,
+    MemotrixPage
   ],
   providers: [
     StatusBar,

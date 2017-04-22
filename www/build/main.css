@@ -24546,6 +24546,60 @@ page-login .error-message .item-inner {
   border-bottom: 0 !important;
 }
 
+page-memotrix .grid-full ion-row {
+  height: 100%;
+  padding: 0;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+page-memotrix .grid-full ion-col {
+  -webkit-flex: 0 0 50%;
+  -ms-flex: 0 0 50%;
+  flex: 0 0 50%;
+  max-width: 50%;
+  text-align: center;
+  padding: 10px 5px;
+}
+
+page-memotrix .cell-0 {
+  background-color: #F44336;
+  font-size: 24px;
+}
+
+page-memotrix .cell-0:active, page-memotrix .cell-1:active, page-memotrix .cell-2:active, page-memotrix .cell-3:active, page-memotrix .cell-4:active, page-memotrix .cell-5:active {
+  background-color: #607D8B;
+  box-shadow: 0 5px #666;
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);
+}
+
+page-memotrix .cell-1 {
+  background-color: #009688;
+  font-size: 24px;
+}
+
+page-memotrix .cell-2 {
+  background-color: #3F51B5;
+  font-size: 24px;
+}
+
+page-memotrix .cell-3 {
+  background-color: #CDDC39;
+  font-size: 24px;
+}
+
+page-memotrix .cell-4 {
+  background-color: #E91E63;
+  font-size: 24px;
+}
+
+page-memotrix .cell-5 {
+  background-color: #673AB7;
+  font-size: 24px;
+}
+
 page-reset-password form {
   margin-bottom: 32px;
 }
