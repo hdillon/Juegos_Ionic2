@@ -10,7 +10,7 @@
 <ion-content class="grid-full">
 
   <ion-row>
-    <ion-col *ngFor='let color of colores; let i = index' class='cell-{{i}}' id="color-{{i}}" (click)="colorSeleccionado(i)">
+    <ion-col *ngFor='let color of colores; let i = index' class='{{color.estilo}}'  id="color-{{i}}" (click)="colorSeleccionado(i)">
       <!--ion-icon [name]="menu.icon"></ion-icon-->
       <ion-label>{{ color.nombre }}</ion-label>
     </ion-col>

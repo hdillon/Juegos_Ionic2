@@ -13,36 +13,39 @@ page-memotrix {
     padding: 10px 5px;
     }
 
-    .cell-0 {
+    .estilo-rojo {
     background-color: #F44336;
     font-size: 24px;
     }
 
-    .cell-0:active , .cell-1:active , .cell-2:active , .cell-3:active , .cell-4:active , .cell-5:active{
-    background-color: #607D8B;
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);
-    }
+   
 
-    .cell-1 {
+    .estilo-verde {
     background-color: #009688;
     font-size: 24px;
     }
-    .cell-2 {
+    .estilo-azul {
     background-color: #3F51B5;
     font-size: 24px;
     }
-    .cell-3 {
+    .estilo-amarillo {
     background-color: #CDDC39;
     font-size: 24px;
     }
-    .cell-4 {
+    .estilo-rosa {
     background-color: #E91E63;
     font-size: 24px;
     }
-    .cell-5 {
+    .estilo-violeta {
     background-color: #673AB7;
     font-size: 24px;
+    }
+
+    .estilo-default {
+    background-color: #607D8B;
+    font-size: 24px;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
     }
 
 }

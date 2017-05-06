@@ -1,12 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
-/*
-  Generated class for the Memotrix page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-memotrix',
   templateUrl: 'memotrix.html'
@@ -14,33 +8,56 @@ import { NavController, NavParams } from 'ionic-angular';
 export class MemotrixPage {
 
   public colores : any;
+  public secuenciaAleatoria : any;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.inicializarColores();
   }
 
-  colorSeleccionado(color : Number){
-    //alert("Numero seleccionado: " + color);
+    /*document.getElementById("color-1").click();
+    document.getElementById("color-2").click();
+    document.getElementById("color-3").click();*/
+
+  colorSeleccionado(indiceColor : number){
+    var auxEstilo =  this.colores[indiceColor].estilo;
+    this.colores[indiceColor].estilo = "estilo-default";
+
+  setTimeout(() =>{
+    this.colores[indiceColor].estilo = auxEstilo;
+    }, 500);
+//Con la sintaxis de ES5 "function()" No puedo acceder al valor de colores!.. con la sintaxis de ES6 "()=>" si funciona!
+   /* setTimeout(function() {
+      console.info("Colores: " + this.colores);
+    this.colores[indiceColor].estilo = "cell-0";
+  }, 1000);*/ 
+  
   }
 
   inicializarColores(){
     this.colores = [
       {
-        nombre:"rojo"
+        nombre:"rojo",
+        estilo: "estilo-rojo"
     },
     {
-      nombre:"verde"
+      nombre:"verde",
+      estilo: "estilo-verde"
     },
     {
-      nombre:"azul"
+      nombre:"azul",
+      estilo: "estilo-azul"
     },
     {
-      nombre:"amarillo"
+      nombre:"amarillo",
+      estilo: "estilo-amarillo"
     },
     {
-      nombre:"rosa"
+      nombre:"rosa",
+      estilo: "estilo-rosa"
     },
     {
-      nombre:"violeta"
+      nombre:"violeta",
+      estilo: "estilo-violeta"
     }
     ];
   }

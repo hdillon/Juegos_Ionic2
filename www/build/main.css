@@ -24563,41 +24563,42 @@ page-memotrix .grid-full ion-col {
   padding: 10px 5px;
 }
 
-page-memotrix .cell-0 {
+page-memotrix .estilo-rojo {
   background-color: #F44336;
   font-size: 24px;
 }
 
-page-memotrix .cell-0:active, page-memotrix .cell-1:active, page-memotrix .cell-2:active, page-memotrix .cell-3:active, page-memotrix .cell-4:active, page-memotrix .cell-5:active {
-  background-color: #607D8B;
-  box-shadow: 0 5px #666;
-  -webkit-transform: translateY(4px);
-  transform: translateY(4px);
-}
-
-page-memotrix .cell-1 {
+page-memotrix .estilo-verde {
   background-color: #009688;
   font-size: 24px;
 }
 
-page-memotrix .cell-2 {
+page-memotrix .estilo-azul {
   background-color: #3F51B5;
   font-size: 24px;
 }
 
-page-memotrix .cell-3 {
+page-memotrix .estilo-amarillo {
   background-color: #CDDC39;
   font-size: 24px;
 }
 
-page-memotrix .cell-4 {
+page-memotrix .estilo-rosa {
   background-color: #E91E63;
   font-size: 24px;
 }
 
-page-memotrix .cell-5 {
+page-memotrix .estilo-violeta {
   background-color: #673AB7;
   font-size: 24px;
+}
+
+page-memotrix .estilo-default {
+  background-color: #607D8B;
+  font-size: 24px;
+  box-shadow: 0 5px #666;
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);
 }
 
 page-reset-password form {
