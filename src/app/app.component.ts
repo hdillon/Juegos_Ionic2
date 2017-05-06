@@ -7,6 +7,7 @@ import { Page2 } from '../pages/page2/page2';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { PiedrapapeltijeraPage } from '../pages/piedrapapeltijera/piedrapapeltijera';
+import { ResultadosPPTPage } from '../pages/resultados-ppt/resultados-ppt';
 import { AngularFire } from 'angularfire2';
 
 

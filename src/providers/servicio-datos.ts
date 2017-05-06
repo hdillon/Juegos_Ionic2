@@ -11,6 +11,14 @@ export class ServicioDatos {
 
   }
 
+  traerDatosFiltrados(ruta: string, campo:string, valor: string): FirebaseListObservable<any> {
+    return this.database.list(ruta, { query: {
+                                        orderByChild: campo,
+                                        equalTo: valor
+                                      }
+                                    });
+  }
+
   traerDatos(ruta: string): FirebaseListObservable<any> {
     return this.database.list(ruta);
   }

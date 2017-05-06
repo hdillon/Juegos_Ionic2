@@ -6,6 +6,7 @@ import { Page2 } from '../pages/page2/page2';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { PiedrapapeltijeraPage } from '../pages/piedrapapeltijera/piedrapapeltijera';
+import { ResultadosPPTPage } from '../pages/resultados-ppt/resultados-ppt';
 import { ResetPasswordPage } from '../pages/reset-password/reset-password';
 import { SignupPage } from '../pages/signup/signup';
 // Importing Providers
@@ -39,7 +40,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     LoginPage,
     ResetPasswordPage,
     SignupPage,
-    PiedrapapeltijeraPage
+    PiedrapapeltijeraPage,
+    ResultadosPPTPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -54,7 +56,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     LoginPage,
     ResetPasswordPage,
     SignupPage,
-    PiedrapapeltijeraPage
+    PiedrapapeltijeraPage,
+    ResultadosPPTPage
   ],
   providers: [
     StatusBar,

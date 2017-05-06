@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { ServicioDatos } from '../../providers/servicio-datos';
 import { AuthData } from '../../providers/auth-data';
+import { ResultadosPPTPage } from '../resultados-ppt/resultados-ppt';
+
 
 @Component({
   selector: 'page-piedrapapeltijera',
@@ -12,6 +14,7 @@ export class PiedrapapeltijeraPage {
   numeroSecreto: number;
   resultado: string;
   usuarioLogueado: any;
+  lista:any;
 
   juego: any = {
     usuario: "",
@@ -95,4 +98,12 @@ export class PiedrapapeltijeraPage {
     this.servicio.guardarDatos("/PiedraPapelTijera", this.juego);
   
   }
+
+  Resultados()
+  {
+    this.navCtrl.push(ResultadosPPTPage, {
+      usuario: this.usuarioLogueado.email,
+    });
+  }
+
 }
