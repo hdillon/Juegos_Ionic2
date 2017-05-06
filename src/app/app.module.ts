@@ -5,10 +5,12 @@ import { Page1 } from '../pages/page1/page1';
 import { Page2 } from '../pages/page2/page2';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
+import { PiedraPapelTijera } from '../pages/piedrapapeltijera/piedrapapeltijera';
 import { ResetPasswordPage } from '../pages/reset-password/reset-password';
 import { SignupPage } from '../pages/signup/signup';
 // Importing Providers
 import { AuthData } from '../providers/auth-data';
+import { ServicioDatos } from '../providers/servicioDatos';
 // Importing AF2 Module
 import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
 // AF2 Settings
@@ -36,7 +38,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HomePage,
     LoginPage,
     ResetPasswordPage,
-    SignupPage
+    SignupPage,
+    PiedraPapelTijera
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -56,7 +59,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthData
+    AuthData,
+    ServicioDatos
   ]
 })
 export class AppModule {}
