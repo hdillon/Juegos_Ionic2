@@ -8,56 +8,70 @@ import { NavController, NavParams } from 'ionic-angular';
 export class MemotrixPage {
 
   public colores : any;
-  public secuenciaAleatoria : any;
+  public secuenciaAleatoria : Array<string> = ["naranja", "verde", "verde", "azul"];
+  public secuenciaUsuario : Array<string>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.inicializarColores();
+    this.reproducirSecuendiaAleatoria();
   }
-
-    /*document.getElementById("color-1").click();
-    document.getElementById("color-2").click();
-    document.getElementById("color-3").click();*/
 
   colorSeleccionado(indiceColor : number){
-    var auxEstilo =  this.colores[indiceColor].estilo;
-    this.colores[indiceColor].estilo = "estilo-default";
+    var auxNombre =  this.colores[indiceColor].nombre;
+    this.colores[indiceColor].nombre = "danger";
+    this.colores[indiceColor].bloqueado = true;
 
   setTimeout(() =>{
-    this.colores[indiceColor].estilo = auxEstilo;
-    }, 500);
-//Con la sintaxis de ES5 "function()" No puedo acceder al valor de colores!.. con la sintaxis de ES6 "()=>" si funciona!
-   /* setTimeout(function() {
-      console.info("Colores: " + this.colores);
-    this.colores[indiceColor].estilo = "cell-0";
-  }, 1000);*/ 
-  
+    console.info("TIME OUT!");
+    this.colores[indiceColor].nombre = auxNombre;
+    this.colores[indiceColor].bloqueado = false;
+    }, 300);
   }
+
+  reproducirSecuendiaAleatoria(){
+    var indiceColorAgregado = Math.floor(Math.random()*6)+1;
+    this.secuenciaAleatoria.push(this.colores[indiceColorAgregado].nombre);
+    var i = 0;
+    this.secuenciaAleatoria.forEach(element => {
+      i++;
+      setTimeout(() =>{
+        document.getElementById(element).click();
+      }, 500 * i);
+    });
+  }
+
 
   inicializarColores(){
     this.colores = [
       {
-        nombre:"rojo",
-        estilo: "estilo-rojo"
+        nombre:"naranja",
+        estilo: "estilo-naranja",
+        bloqueado: false
     },
     {
       nombre:"verde",
-      estilo: "estilo-verde"
+      estilo: "estilo-verde",
+      bloqueado: false
     },
     {
       nombre:"azul",
-      estilo: "estilo-azul"
+      estilo: "estilo-azul",
+      bloqueado: false
     },
     {
       nombre:"amarillo",
-      estilo: "estilo-amarillo"
+      estilo: "estilo-amarillo",
+      bloqueado: false
     },
     {
       nombre:"rosa",
-      estilo: "estilo-rosa"
+      estilo: "estilo-rosa",
+      bloqueado: false
     },
     {
       nombre:"violeta",
-      estilo: "estilo-violeta"
+      estilo: "estilo-violeta",
+      bloqueado: false
     }
     ];
   }

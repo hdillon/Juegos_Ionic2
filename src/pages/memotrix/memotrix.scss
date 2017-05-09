@@ -13,12 +13,22 @@ page-memotrix {
     padding: 10px 5px;
     }
 
+    .grid-full button {
+    text-align: center;
+    padding: 100px 100px;
+    }
+
+
     .estilo-rojo {
     background-color: #F44336;
     font-size: 24px;
     }
 
-   
+    .estilo-rojo:active , .estilo-verde:active , .estilo-azul:active , .estilo-amarillo:active , .estilo-rosa:active , .estilo-violeta:active{
+    background-color: #607D8B;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+    }
 
     .estilo-verde {
     background-color: #009688;
@@ -38,6 +48,11 @@ page-memotrix {
     }
     .estilo-violeta {
     background-color: #673AB7;
+    font-size: 24px;
+    }
+
+    .estilo-negro {
+    background-color: #000000;
     font-size: 24px;
     }
 
