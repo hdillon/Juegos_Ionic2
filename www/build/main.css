@@ -50290,18 +50290,28 @@ page-memotrix .grid-full ion-row {
   flex-wrap: wrap;
 }
 
-page-memotrix .grid-full ion-col {
+page-memotrix .ion-columna {
   -webkit-flex: 0 0 50%;
   -ms-flex: 0 0 50%;
   flex: 0 0 50%;
   max-width: 50%;
   text-align: center;
-  padding: 10px 5px;
+  padding: 1% 1%;
+}
+
+page-memotrix .ion-encabezado {
+  -webkit-flex: 0 0 100%;
+  -ms-flex: 0 0 100%;
+  flex: 0 0 100%;
+  max-width: 100%;
+  max-height: 10%;
+  text-align: center;
+  padding: 1% 1%;
 }
 
 page-memotrix .grid-full button {
   text-align: center;
-  padding: 100px 100px;
+  height: 100%;
 }
 
 page-memotrix .estilo-rojo {

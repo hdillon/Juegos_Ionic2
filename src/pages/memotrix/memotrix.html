@@ -3,18 +3,14 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Memotrix</ion-title>
+    <ion-title>Puntos: {{usuarioLogueado.puntos}}</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content class="grid-full">
-
   <ion-row>
-    <ion-col *ngFor='let color of colores; let i = index' class='estilo-negro'  id="color-{{i}}">
-      <!--ion-icon [name]="menu.icon"></ion-icon>
-      <ion-label>{{ color.nombre }}</ion-label-->
-
-    <button full ion-button color="{{color.nombre}}" [disabled]="color.bloqueado" id="{{color.nombre}}" (click)="colorSeleccionadoUsuario(i)"></button>
+    <ion-col *ngFor='let color of colores; let i = index' class='ion-columna estilo-negro'  id="color-{{i}}">
+      <button full ion-button color="{{color.nombre}}" [disabled]="color.bloqueado" id="{{color.nombre}}" (click)="colorSeleccionadoUsuario(i)"></button>
     </ion-col>
   </ion-row>
 

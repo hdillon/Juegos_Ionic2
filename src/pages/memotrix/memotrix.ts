@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { AuthData } from '../../providers/auth-data';
 
 @Component({
   selector: 'page-memotrix',
@@ -8,10 +9,13 @@ import { NavController, NavParams } from 'ionic-angular';
 export class MemotrixPage {
 
   public colores : any;
-  public secuenciaAleatoria : Array<number> = [1, 2, 3, 3, 4];
+  public secuenciaAleatoria : Array<number> = [];
   public secuenciaUsuario : Array<number> = [];
+  public usuarioLogueado : any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public auth: AuthData) {
+    this.usuarioLogueado = this.auth.fireAuth;
+    this.usuarioLogueado.puntos = 0;
     this.inicializarColores();
     this.reproducirSecuendiaAleatoria();
   }
@@ -20,15 +24,28 @@ export class MemotrixPage {
     this.secuenciaUsuario.push(indiceColor);
     this.presionarColor(indiceColor);
     if(this.secuenciaUsuario.toString() == this.secuenciaAleatoria.slice(0, this.secuenciaUsuario.length).toString()){
-      console.info("SECUENCIA CORRECTA!");
+      console.info("ALEATORIA: " + this.secuenciaAleatoria.length);
+      console.info("USUARIO: " + this.secuenciaUsuario.length);
+      if(this.secuenciaUsuario.length == this.secuenciaAleatoria.length){
+        console.info("SECUENCIA CORRECTA!");
+        this.usuarioLogueado.puntos += 10;
+        this.secuenciaUsuario = [];
+        this.reproducirSecuendiaAleatoria();
+      }
     }else{ 
-      console.info("INCORRECTA!");
-      alert("Perdiste!");
+      setTimeout(() =>{
+        console.info("INCORRECTA!");
+        alert("Perdiste!");
+        this.secuenciaUsuario = [];
+        this.secuenciaAleatoria = [];
+        alert("Comenzar nuevamente..");
+        this.reproducirSecuendiaAleatoria();
+      }, 350);
     }
   }
 
   reproducirSecuendiaAleatoria(){
-    var indiceColorAgregado = Math.floor(Math.random()*6)+1;
+    var indiceColorAgregado = Math.floor(Math.random()*4);
     this.secuenciaAleatoria.push(indiceColorAgregado);
     var i = 0;
     this.secuenciaAleatoria.forEach(element => {
@@ -70,16 +87,6 @@ export class MemotrixPage {
       {
         nombre:"amarillo",
         estilo: "estilo-amarillo",
-        bloqueado: false
-      },
-      {
-        nombre:"rosa",
-        estilo: "estilo-rosa",
-        bloqueado: false
-      },
-      {
-        nombre:"violeta",
-        estilo: "estilo-violeta",
         bloqueado: false
       }
     ];
