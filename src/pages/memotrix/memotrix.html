@@ -10,7 +10,12 @@
 <ion-content class="grid-full">
   <ion-row>
     <ion-col *ngFor='let color of colores; let i = index' class='ion-columna estilo-negro'  id="color-{{i}}">
-      <button full ion-button color="{{color.nombre}}" [disabled]="color.bloqueado" id="{{color.nombre}}" (click)="colorSeleccionadoUsuario(i)"></button>
+      <button full ion-button color="{{color.nombre}}" [ngStyle]="{'opacity': color.opacity, 
+                                                                   'border': color.border, 
+                                                                   'border-style': color.borderStyle, 
+                                                                   'border-color': color.borderColor,
+                                                                   'border-radius': color.borderRadius}" 
+      [disabled]="color.bloqueado" id="{{color.nombre}}" (click)="colorSeleccionadoUsuario(i)"></button>
     </ion-col>
   </ion-row>
 

@@ -39,12 +39,13 @@ page-memotrix {
     }
 
     .estilo-verde {
-    background-color: #009688;
-    font-size: 24px;
+        font-size: 24px;
+        border: 5px solid green;
+        opacity: 0.6;
     }
     .estilo-azul {
-    background-color: #3F51B5;
-    font-size: 24px;
+        background-color: #3F51B5;
+        font-size: 24px;
     }
     .estilo-amarillo {
     background-color: #CDDC39;

@@ -12,6 +12,7 @@ export class MemotrixPage {
   public secuenciaAleatoria : Array<number> = [];
   public secuenciaUsuario : Array<number> = [];
   public usuarioLogueado : any;
+  maquina:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public auth: AuthData) {
     this.usuarioLogueado = this.auth.fireAuth;
@@ -21,30 +22,34 @@ export class MemotrixPage {
   }
 
   colorSeleccionadoUsuario(indiceColor : number){
-    this.secuenciaUsuario.push(indiceColor);
-    this.presionarColor(indiceColor);
-    if(this.secuenciaUsuario.toString() == this.secuenciaAleatoria.slice(0, this.secuenciaUsuario.length).toString()){
-      console.info("ALEATORIA: " + this.secuenciaAleatoria.length);
-      console.info("USUARIO: " + this.secuenciaUsuario.length);
-      if(this.secuenciaUsuario.length == this.secuenciaAleatoria.length){
-        console.info("SECUENCIA CORRECTA!");
-        this.usuarioLogueado.puntos += 10;
-        this.secuenciaUsuario = [];
-        this.reproducirSecuendiaAleatoria();
+    if (this.maquina == false)
+    {
+      this.secuenciaUsuario.push(indiceColor);
+      this.presionarColor(indiceColor);
+      if(this.secuenciaUsuario.toString() == this.secuenciaAleatoria.slice(0, this.secuenciaUsuario.length).toString()){
+        /*console.info("ALEATORIA: " + this.secuenciaAleatoria.length);
+        console.info("USUARIO: " + this.secuenciaUsuario.length);*/
+        if(this.secuenciaUsuario.length == this.secuenciaAleatoria.length){
+          console.info("SECUENCIA CORRECTA!");
+          this.usuarioLogueado.puntos += 10;
+          this.secuenciaUsuario = [];
+          this.reproducirSecuendiaAleatoria();
+        }
+      }else{ 
+        setTimeout(() =>{
+          console.info("INCORRECTA!");
+          alert("Perdiste!");
+          this.secuenciaUsuario = [];
+          this.secuenciaAleatoria = [];
+          alert("Comenzar nuevamente..");
+          this.reproducirSecuendiaAleatoria();
+        }, 350);
       }
-    }else{ 
-      setTimeout(() =>{
-        console.info("INCORRECTA!");
-        alert("Perdiste!");
-        this.secuenciaUsuario = [];
-        this.secuenciaAleatoria = [];
-        alert("Comenzar nuevamente..");
-        this.reproducirSecuendiaAleatoria();
-      }, 350);
     }
   }
 
   reproducirSecuendiaAleatoria(){
+    this.maquina = true;
     var indiceColorAgregado = Math.floor(Math.random()*4);
     this.secuenciaAleatoria.push(indiceColorAgregado);
     var i = 0;
@@ -53,41 +58,72 @@ export class MemotrixPage {
       setTimeout(() =>{
         this.presionarColor(element);
       }, 500 * i);
+      if(this.secuenciaAleatoria.length == i){
+        setTimeout(() =>{
+          this.maquina = false;
+      }, 500 * i);
+      }    
     });
   }
 
   presionarColor(indiceColor : number){
     var auxColorNombre =  this.colores[indiceColor].nombre;
-    this.colores[indiceColor].nombre = "danger";
-    this.colores[indiceColor].bloqueado = true;
+    this.colores[indiceColor].opacity = 1;
+    //this.colores[indiceColor].bloqueado = true;
     setTimeout(() =>{
-      this.colores[indiceColor].nombre = auxColorNombre;
-      this.colores[indiceColor].bloqueado = false;
+      this.colores[indiceColor].opacity = 0.6;
+      //this.colores[indiceColor].bloqueado = false;
       }, 300);
+  }
+
+  bloquearBotones(bloquear : boolean){
+    this.colores.forEach(element => {
+      element.bloqueado = bloquear;
+    });
   }
 
 
   inicializarColores(){
     this.colores = [
       {
-        nombre:"naranja",
-        estilo: "estilo-naranja",
-        bloqueado: false
+        nombre:"rojo",
+        estilo: "estilo-rojo",
+        bloqueado: false,
+        opacity: 0.6,
+        border: "5px",
+        borderStyle: "solid",
+        borderColor: "#B71C1C",
+        borderRadius: "10%"
       },
       {
         nombre:"verde",
         estilo: "estilo-verde",
-        bloqueado: false
+        bloqueado: false,
+        opacity: 0.6,
+        border: "5px",
+        borderStyle: "solid",
+        borderColor: "#1B5E20",
+        borderRadius: "10%"
       },
       {
         nombre:"azul",
         estilo: "estilo-azul",
-        bloqueado: false
+        bloqueado: false,
+        opacity: 0.6,
+        border: "5px",
+        borderStyle: "solid",
+        borderColor: "#0D47A1",
+        borderRadius: "10%"
       },
       {
         nombre:"amarillo",
         estilo: "estilo-amarillo",
-        bloqueado: false
+        bloqueado: false,
+        opacity: 0.6,
+        border: "5px",
+        borderStyle: "solid",
+        borderColor: "#FFD600",
+        borderRadius: "10%"
       }
     ];
   }
