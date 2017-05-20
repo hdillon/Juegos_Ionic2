@@ -10,6 +10,7 @@ import { SignupPage } from '../pages/signup/signup';
 import { MemotrixPage } from '../pages/memotrix/memotrix';
 // Importing Providers
 import { AuthData } from '../providers/auth-data';
+import { ServicioDatos } from '../providers/servicio-datos';
 // Importing AF2 Module
 import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
 // AF2 Settings
@@ -59,7 +60,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthData
+    AuthData,
+    ServicioDatos
   ]
 })
 export class AppModule {}

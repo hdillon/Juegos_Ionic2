@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { AuthData } from '../../providers/auth-data';
+import { ServicioDatos } from '../../providers/servicio-datos';
 
 @Component({
   selector: 'page-memotrix',
@@ -8,14 +9,20 @@ import { AuthData } from '../../providers/auth-data';
 })
 export class MemotrixPage {
 
+  resultadoJuego: any = {
+    usuario: "",
+    puntaje: "",
+    fecha: ""
+  }
   public colores : any;
   public secuenciaAleatoria : Array<number> = [];
   public secuenciaUsuario : Array<number> = [];
   public usuarioLogueado : any;
   maquina:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public auth: AuthData) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public auth: AuthData, public servicio: ServicioDatos) {
     this.usuarioLogueado = this.auth.fireAuth;
+    console.info("usuario logueado" + this.usuarioLogueado);
     this.usuarioLogueado.puntos = 0;
     this.inicializarColores();
     this.reproducirSecuendiaAleatoria();
@@ -41,6 +48,10 @@ export class MemotrixPage {
           alert("Perdiste!");
           this.secuenciaUsuario = [];
           this.secuenciaAleatoria = [];
+          this.resultadoJuego.usuario = this.usuarioLogueado.email;
+          this.resultadoJuego.puntaje = this.usuarioLogueado.puntos;
+          this.resultadoJuego.fecha = new Date();
+          this.servicio.guardarDatos("/memotrix/resultados", this.resultadoJuego);
           alert("Comenzar nuevamente..");
           this.reproducirSecuendiaAleatoria();
         }, 350);
