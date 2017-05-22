@@ -5,6 +5,7 @@ import { Page1 } from '../pages/page1/page1';
 import { Page2 } from '../pages/page2/page2';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
+import { ListadoPuntajesPage } from '../pages/listado-puntajes/listado-puntajes';
 import { ResetPasswordPage } from '../pages/reset-password/reset-password';
 import { SignupPage } from '../pages/signup/signup';
 import { MemotrixPage } from '../pages/memotrix/memotrix';
@@ -37,12 +38,18 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     Page2,
     HomePage,
     LoginPage,
+    ListadoPuntajesPage,
     ResetPasswordPage,
     SignupPage,
     MemotrixPage
   ],
   imports: [
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp, {
+      platforms: {
+        android: {
+          activator: 'none' 
+        }
+    }}),
     AngularFireModule.initializeApp(firebaseConfig, myFirebaseAuthConfig)
   ],
   bootstrap: [IonicApp],
@@ -52,6 +59,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     Page2,
     HomePage,
     LoginPage,
+    ListadoPuntajesPage,
     ResetPasswordPage,
     SignupPage,
     MemotrixPage

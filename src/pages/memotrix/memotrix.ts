@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { AuthData } from '../../providers/auth-data';
 import { ServicioDatos } from '../../providers/servicio-datos';
+import { HomePage } from '../home/home';
 
 @Component({
   selector: 'page-memotrix',
@@ -20,9 +21,11 @@ export class MemotrixPage {
   public usuarioLogueado : any;
   maquina:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public auth: AuthData, public servicio: ServicioDatos) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public auth: AuthData, public servicioDatos: ServicioDatos,
+  public alertCtrl: AlertController) {
     this.usuarioLogueado = this.auth.fireAuth;
     console.info("usuario logueado" + this.usuarioLogueado);
+    //TODO: Validar si el usuario está logueado y redirigir a la página de login en caso de que no lo esté
     this.usuarioLogueado.puntos = 0;
     this.inicializarColores();
     this.reproducirSecuendiaAleatoria();
@@ -45,15 +48,34 @@ export class MemotrixPage {
       }else{ 
         setTimeout(() =>{
           console.info("INCORRECTA!");
-          alert("Perdiste!");
-          this.secuenciaUsuario = [];
-          this.secuenciaAleatoria = [];
           this.resultadoJuego.usuario = this.usuarioLogueado.email;
           this.resultadoJuego.puntaje = this.usuarioLogueado.puntos;
           this.resultadoJuego.fecha = new Date();
-          this.servicio.guardarDatos("/memotrix/resultados", this.resultadoJuego);
-          alert("Comenzar nuevamente..");
-          this.reproducirSecuendiaAleatoria();
+          this.servicioDatos.guardarDatos("/memotrix/resultados", this.resultadoJuego);
+          this.secuenciaUsuario = [];
+          this.secuenciaAleatoria = [];
+          this.usuarioLogueado.puntos = 0;
+  
+           let confirm = this.alertCtrl.create({
+            title: 'Incorrecto!',
+            message: 'Has logrado ' + this.resultadoJuego.puntaje + ' puntos! ¿Deseas volver a jugar?',
+            buttons: [
+              {
+                text: 'Si',
+                handler: () => {
+                  this.reproducirSecuendiaAleatoria();
+                }
+              },
+              {
+                text: 'Ahora no',
+                handler: () => {
+                  this.navCtrl.setRoot(HomePage);
+                }
+              }
+            ]
+          });
+          confirm.present();
+          
         }, 350);
       }
     }
