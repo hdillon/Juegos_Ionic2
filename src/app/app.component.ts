@@ -9,6 +9,7 @@ import { LoginPage } from '../pages/login/login';
 import { PiedrapapeltijeraPage } from '../pages/piedrapapeltijera/piedrapapeltijera';
 import { ListadoPuntajesPage } from '../pages/listado-puntajes/listado-puntajes';
 import { MemotrixPage } from '../pages/memotrix/memotrix';
+import { ResultadosPPTPage } from '../pages/resultados-ppt/resultados-ppt';
 import { AngularFire } from 'angularfire2';
 
 

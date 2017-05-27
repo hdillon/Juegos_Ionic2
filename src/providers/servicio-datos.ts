@@ -24,6 +24,7 @@ export class ServicioDatos {
         orderByChild: campo
         }
       });
+                                        
   }
 
   traerDatos(ruta: string): FirebaseListObservable<any> {

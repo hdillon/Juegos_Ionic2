@@ -5,8 +5,9 @@ import { Page1 } from '../pages/page1/page1';
 import { Page2 } from '../pages/page2/page2';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
-import { PiedraPapelTijera } from '../pages/piedrapapeltijera/piedrapapeltijera';
 import { ListadoPuntajesPage } from '../pages/listado-puntajes/listado-puntajes';
+import { PiedrapapeltijeraPage } from '../pages/piedrapapeltijera/piedrapapeltijera';
+import { ResultadosPPTPage } from '../pages/resultados-ppt/resultados-ppt';
 import { ResetPasswordPage } from '../pages/reset-password/reset-password';
 import { SignupPage } from '../pages/signup/signup';
 import { MemotrixPage } from '../pages/memotrix/memotrix';
@@ -42,8 +43,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ListadoPuntajesPage,
     ResetPasswordPage,
     SignupPage,
-    PiedraPapelTijera,
-    MemotrixPage
+    MemotrixPage,
+    PiedrapapeltijeraPage,
+    ResultadosPPTPage
   ],
   imports: [
     IonicModule.forRoot(MyApp, {
@@ -64,7 +66,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ListadoPuntajesPage,
     ResetPasswordPage,
     SignupPage,
-    MemotrixPage
+    MemotrixPage,
+    PiedrapapeltijeraPage,
+    ResultadosPPTPage
   ],
   providers: [
     StatusBar,
