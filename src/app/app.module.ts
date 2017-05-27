@@ -6,11 +6,13 @@ import { Page2 } from '../pages/page2/page2';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { PiedraPapelTijera } from '../pages/piedrapapeltijera/piedrapapeltijera';
+import { ListadoPuntajesPage } from '../pages/listado-puntajes/listado-puntajes';
 import { ResetPasswordPage } from '../pages/reset-password/reset-password';
 import { SignupPage } from '../pages/signup/signup';
+import { MemotrixPage } from '../pages/memotrix/memotrix';
 // Importing Providers
 import { AuthData } from '../providers/auth-data';
-import { ServicioDatos } from '../providers/servicioDatos';
+import { ServicioDatos } from '../providers/servicio-datos';
 // Importing AF2 Module
 import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
 // AF2 Settings
@@ -37,12 +39,19 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     Page2,
     HomePage,
     LoginPage,
+    ListadoPuntajesPage,
     ResetPasswordPage,
     SignupPage,
-    PiedraPapelTijera
+    PiedraPapelTijera,
+    MemotrixPage
   ],
   imports: [
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp, {
+      platforms: {
+        android: {
+          activator: 'none' 
+        }
+    }}),
     AngularFireModule.initializeApp(firebaseConfig, myFirebaseAuthConfig)
   ],
   bootstrap: [IonicApp],
@@ -52,8 +61,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     Page2,
     HomePage,
     LoginPage,
+    ListadoPuntajesPage,
     ResetPasswordPage,
-    SignupPage
+    SignupPage,
+    MemotrixPage
   ],
   providers: [
     StatusBar,

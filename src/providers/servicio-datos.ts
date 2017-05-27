@@ -11,6 +11,24 @@ export class ServicioDatos {
 
   }
 
+<<<<<<< HEAD
+=======
+  traerDatosFiltrados(ruta: string, campo:string, valor: string): FirebaseListObservable<any> {
+    return this.database.list(ruta, { query: {
+        orderByChild: campo,
+        equalTo: valor
+        }
+      });
+  }
+
+  traerDatosOrdenados(ruta: string, campo:string): FirebaseListObservable<any> {
+    return this.database.list(ruta, { query: {
+        orderByChild: campo
+        }
+      });
+  }
+
+>>>>>>> branch-memotrix
   traerDatos(ruta: string): FirebaseListObservable<any> {
     return this.database.list(ruta);
   }
@@ -23,4 +41,8 @@ export class ServicioDatos {
     return this.database.list(ruta).remove(datos);
   }
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> branch-memotrix

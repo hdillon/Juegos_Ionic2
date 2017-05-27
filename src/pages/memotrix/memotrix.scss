@@ -1,0 +1,75 @@
+page-memotrix {
+
+    .grid-full ion-row {
+    height: 100%;
+    padding: 0;
+    flex-wrap: wrap;
+    }
+
+    .ion-columna {
+    flex: 0 0 50%;
+    max-width: 50%;
+    text-align: center;
+    padding: 1% 1%;
+    }
+
+    .ion-encabezado {
+    flex: 0 0 100%;
+    max-width: 100%;
+    max-height: 10%;
+    text-align: center;
+    padding: 1% 1%;
+    }
+
+    .grid-full button {
+    text-align: center;
+      height: 100%;
+    }
+
+
+    .estilo-rojo {
+    background-color: #F44336;
+    font-size: 24px;
+    }
+
+    .estilo-rojo:active , .estilo-verde:active , .estilo-azul:active , .estilo-amarillo:active , .estilo-rosa:active , .estilo-violeta:active{
+    background-color: #607D8B;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+    }
+
+    .estilo-verde {
+        font-size: 24px;
+        border: 5px solid green;
+        opacity: 0.6;
+    }
+    .estilo-azul {
+        background-color: #3F51B5;
+        font-size: 24px;
+    }
+    .estilo-amarillo {
+    background-color: #CDDC39;
+    font-size: 24px;
+    }
+    .estilo-rosa {
+    background-color: #E91E63;
+    font-size: 24px;
+    }
+    .estilo-violeta {
+    background-color: #673AB7;
+    font-size: 24px;
+    }
+
+    .estilo-negro {
+    background-color: #000000;
+    font-size: 24px;
+    }
+
+    .estilo-default {
+    background-color: #607D8B;
+    font-size: 24px;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+    }
+
+}
