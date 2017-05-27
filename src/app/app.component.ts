@@ -6,12 +6,9 @@ import { Page1 } from '../pages/page1/page1';
 import { Page2 } from '../pages/page2/page2';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
-<<<<<<< HEAD
 import { PiedrapapeltijeraPage } from '../pages/piedrapapeltijera/piedrapapeltijera';
-=======
 import { ListadoPuntajesPage } from '../pages/listado-puntajes/listado-puntajes';
 import { MemotrixPage } from '../pages/memotrix/memotrix';
->>>>>>> branch-memotrix
 import { AngularFire } from 'angularfire2';
 
 
@@ -41,15 +38,12 @@ export class MyApp {
 
     this.pages = [
       { title: 'Home', component: HomePage },
-<<<<<<< HEAD
       { title: 'Tareas', component: Page2 },
-      { title: 'Piedra-Papel-Tijera', component: PiedrapapeltijeraPage }
-=======
+      { title: 'Piedra-Papel-Tijera', component: PiedrapapeltijeraPage },
       /*{ title: 'Page One', component: Page1 },
       { title: 'Page Two', component: Page2 },*/
       { title: 'Memotrix', component: MemotrixPage },
       { title: 'Puntajes', component: ListadoPuntajesPage }
->>>>>>> branch-memotrix
     ];
   }
 
