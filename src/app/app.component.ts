@@ -10,6 +10,7 @@ import { PiedrapapeltijeraPage } from '../pages/piedrapapeltijera/piedrapapeltij
 import { ListadoPuntajesPage } from '../pages/listado-puntajes/listado-puntajes';
 import { MemotrixPage } from '../pages/memotrix/memotrix';
 import { ResultadosPPTPage } from '../pages/resultados-ppt/resultados-ppt';
+import { PaisesPage } from '../pages/paises/paises';
 import { AngularFire } from 'angularfire2';
 
 
@@ -41,8 +42,7 @@ export class MyApp {
       { title: 'Home', component: HomePage },
       { title: 'Tareas', component: Page2 },
       { title: 'Piedra-Papel-Tijera', component: PiedrapapeltijeraPage },
-      /*{ title: 'Page One', component: Page1 },
-      { title: 'Page Two', component: Page2 },*/
+      { title: 'Paises', component: PaisesPage },
       { title: 'Memotrix', component: MemotrixPage },
       { title: 'Puntajes', component: ListadoPuntajesPage }
     ];

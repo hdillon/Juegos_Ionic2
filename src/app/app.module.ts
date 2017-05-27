@@ -9,13 +9,26 @@ import { ListadoPuntajesPage } from '../pages/listado-puntajes/listado-puntajes'
 import { PiedrapapeltijeraPage } from '../pages/piedrapapeltijera/piedrapapeltijera';
 import { ResultadosPPTPage } from '../pages/resultados-ppt/resultados-ppt';
 import { ResetPasswordPage } from '../pages/reset-password/reset-password';
+import { PaisesPage } from '../pages/paises/paises';
 import { SignupPage } from '../pages/signup/signup';
 import { MemotrixPage } from '../pages/memotrix/memotrix';
 // Importing Providers
 import { AuthData } from '../providers/auth-data';
 import { ServicioDatos } from '../providers/servicio-datos';
+import { HttpModule } from '@angular/http';
 // Importing AF2 Module
 import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
+
+import {
+ GoogleMaps,
+ GoogleMap,
+ GoogleMapsEvent,
+ LatLng,
+ CameraPosition,
+ MarkerOptions,
+ Marker
+} from '@ionic-native/google-maps';
+
 // AF2 Settings
 const firebaseConfig = {
   apiKey: "AIzaSyCmwrmiO9sATY1sMAqgwuhpCXd5igb2W9Y",
@@ -45,7 +58,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     SignupPage,
     MemotrixPage,
     PiedrapapeltijeraPage,
-    ResultadosPPTPage
+    ResultadosPPTPage,
+    PaisesPage
   ],
   imports: [
     IonicModule.forRoot(MyApp, {
@@ -54,7 +68,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
           activator: 'none' 
         }
     }}),
-    AngularFireModule.initializeApp(firebaseConfig, myFirebaseAuthConfig)
+    AngularFireModule.initializeApp(firebaseConfig, myFirebaseAuthConfig),
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -68,14 +83,16 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     SignupPage,
     MemotrixPage,
     PiedrapapeltijeraPage,
-    ResultadosPPTPage
+    ResultadosPPTPage,
+    PaisesPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthData,
-    ServicioDatos
+    ServicioDatos,
+    GoogleMaps
   ]
 })
 export class AppModule {}

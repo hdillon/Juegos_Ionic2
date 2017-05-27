@@ -1,0 +1,28 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Paises</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+<ion-list *ngIf="listaVisible">
+  <ion-item-sliding *ngFor='let pais of listaPaises | async'>
+    <ion-item>
+      <h2>{{ pais.name }}</h2>
+    </ion-item>
+    <ion-item-options side="rigth">
+      <button ion-button color="primary" (click)="verMapaPais(pais)">
+        <ion-icon name="map"></ion-icon>
+        Ver Mapa
+      </button>
+    </ion-item-options>
+  </ion-item-sliding>
+</ion-list>
+
+
+<div #map id="map" style="height:100%;" *ngIf="mapaVisible"></div>
+
+</ion-content>
